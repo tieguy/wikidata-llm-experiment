@@ -1,5 +1,7 @@
 # Guidelines for LLM-Assisted Wikidata Fact-Checking
 
+> **Work in Progress**: This document was initially drafted with LLM assistance and requires further refinement and human fact-checking. Quotes and policy summaries should be verified against the original sources before being relied upon. The "Further Research Needed" section lists sources that could not be automatically retrieved and need manual review.
+
 This document synthesizes Wikipedia and Wikidata community norms, policies, and concerns regarding the use of Large Language Models (LLMs) for contributing to Wikimedia projects. These guidelines inform how this research project approaches LLM-assisted fact-checking.
 
 ## Table of Contents
@@ -10,7 +12,7 @@ This document synthesizes Wikipedia and Wikidata community norms, policies, and 
 4. [Known Risks and Failure Modes](#known-risks-and-failure-modes)
 5. [Detection and Quality Control](#detection-and-quality-control)
 6. [Recommended Practices for This Project](#recommended-practices-for-this-project)
-7. [Further Research](#further-research)
+7. [Further Research Needed](#further-research-needed)
 8. [Sources](#sources)
 
 ---
@@ -326,9 +328,9 @@ Active monitoring for:
 
 ---
 
-## Further Research
+## Further Research Needed
 
-The following resources could not be automatically fetched and should be reviewed manually:
+The following resources could not be automatically fetched during the initial research phase and require manual review to verify, correct, or expand the information in this document:
 
 ### Wikipedia Policy Pages (403 errors)
 - [Wikipedia:Case against LLM-generated articles](https://en.wikipedia.org/wiki/Wikipedia:Case_against_LLM-generated_articles) - Comprehensive arguments against LLM-generated content
