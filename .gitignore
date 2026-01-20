@@ -205,3 +205,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# pywikibot credentials and cache (never commit these!)
+user-config.py
+user-password.py
+throttle.ctrl
+apicache/
+*.lwp
