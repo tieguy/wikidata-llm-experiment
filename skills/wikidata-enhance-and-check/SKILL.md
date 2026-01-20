@@ -229,6 +229,81 @@ Reasoning: [why this confidence level]
 Evidence type: [documentation|reporting|analysis|etc per methodology]"
 ```
 
+## Human Approval
+
+### Step 11: Present Verification Results
+
+Present the verification findings to the human for approval using AskUserQuestion:
+
+**First, summarize the finding:**
+
+```
+## Verification Result for [Property Label]
+
+**Item:** [Item Label] ([Q-id])
+**Property:** [Property Label] (P[xxx])
+**Proposed Value:** [value]
+**Value Type:** [item|string|time|quantity]
+
+### Sources Consulted
+1. [Source 1 name] - [reliability rating] - [what it says]
+2. [Source 2 name] - [reliability rating] - [what it says]
+
+### SIFT Analysis
+- **Investigate:** [source assessment summary]
+- **Find:** [cross-reference summary]
+- **Trace:** [primary source status]
+
+### Confidence: [HIGH|MEDIUM|LOW]
+[Reasoning for confidence level]
+
+### Proposed Wikidata Claim
+- Property: P[xxx]
+- Value: [value]
+- References:
+  - Reference URL: [primary source URL]
+  - Retrieved: [today's date]
+```
+
+**Then ask for approval:**
+
+```
+AskUserQuestion:
+  Question: "Do you approve adding this claim to test.wikidata.org?"
+  Header: "Approval"
+  Options:
+    - "Approve" (Claim is verified and ready to add)
+    - "Reject" (Claim should not be added - explain why)
+    - "Need more research" (Verification incomplete - specify what's needed)
+```
+
+### Step 12: Handle Approval Decision
+
+**If Approved:**
+1. Log the approved claim to YAML (see Step 13)
+2. End the session with handoff notes (see Step 14)
+3. Next session will execute the claim
+
+**If Rejected:**
+1. Ask for rejection reason via text input
+2. Log rejection to chainlink:
+   ```bash
+   chainlink comment [subissue_id] "REJECTED: [reason]"
+   ```
+3. Close the subissue:
+   ```bash
+   chainlink close [subissue_id] --no-changelog
+   ```
+4. Continue to next property (if any) or end session
+
+**If Need More Research:**
+1. Ask what additional research is needed
+2. Log the blocker:
+   ```bash
+   chainlink comment [subissue_id] "BLOCKED: Need more research - [specifics]"
+   ```
+3. End session with notes about what's needed
+
 ## Methodology Reference
 
 For fact-checking methodology (SIFT framework, evidence types, source reliability), see:
