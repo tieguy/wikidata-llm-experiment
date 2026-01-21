@@ -72,6 +72,9 @@ proposed_claim:
       url: "https://www.britannica.com/biography/Douglas-Adams"
       retrieved: 2026-01-20
 
+# QuickStatements: N/A - existing claim (verification only, not adding new data)
+quickstatements: null
+
 human_verification:
   reviewed_by: null
   review_date: null

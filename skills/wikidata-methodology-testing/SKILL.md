@@ -191,6 +191,10 @@ proposed_claim:
       url: "[url]"
       retrieved: [YYYY-MM-DD]
 
+# QuickStatements format for easy Wikidata entry (pipe-separated)
+# Paste into https://quickstatements.toolforge.org/
+quickstatements: "[entity]|[property]|[value]|[qualifiers...]|[references...]"
+
 # HUMAN FILLS IN AFTER REVIEW:
 human_verification:
   reviewed_by: null
