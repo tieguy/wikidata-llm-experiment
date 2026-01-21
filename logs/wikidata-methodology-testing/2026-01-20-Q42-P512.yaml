@@ -6,7 +6,7 @@ entity_type: human
 property: P512
 property_label: academic degree
 property_selected_by: system
-claim_status: new  # This property does not exist on Q42 yet
+claim_status: redundant  # REDUNDANT: P512 already exists as qualifier on P69 (educated at)
 
 sources_consulted:
   - source_name: "Official Douglas Adams website"
@@ -88,10 +88,10 @@ proposed_claim:
       url: "https://douglasadams.com/dna/bio.html"
       retrieved: 2026-01-20
 
-# QuickStatements format (pipe-separated) - paste into https://quickstatements.toolforge.org/
-# Creates: P512 (academic degree) = Bachelor of Arts, with qualifier P69 (educated at) and end time 1974
-quickstatements: |
-  Q42|P512|Q1765120|P69|Q691283|P582|+1974-00-00T00:00:00Z/9|S854|"https://douglasadams.com/dna/bio.html"|S1476|en:"DNA/Biography"|S813|+2026-01-20T00:00:00Z/11
+# QuickStatements: DO NOT SUBMIT - this is redundant
+# P512 already exists as a qualifier on P69 (educated at) = St John's College
+# See chainlink issue #10
+quickstatements: null  # REDUNDANT - do not submit
 
 human_verification:
   reviewed_by: null
