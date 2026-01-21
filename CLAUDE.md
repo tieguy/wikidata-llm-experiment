@@ -1,6 +1,6 @@
 Instructions for Claude Code when working on this project.
 
-Last updated: 2026-01-19
+Last updated: 2026-01-20
 
 ## Project Purpose
 
@@ -107,6 +107,8 @@ Before proposing any claim:
 This project includes Claude Code skills for structured workflows:
 
 - **wikidata-enhance-and-check** (`skills/wikidata-enhance-and-check/SKILL.md`): Systematically verify and add claims to Wikidata test items with SIFT methodology, human approval gates, and chainlink session tracking. Invoke with `/wikidata-enhance-and-check Q42` or just `/wikidata-enhance-and-check` to resume.
+
+- **wikidata-methodology-testing** (`skills/wikidata-methodology-testing/SKILL.md`): Test SIFT methodology accuracy by reading production Wikidata entities, running full verification pipelines, and logging proposed claims for human verification. This is READ-ONLY (never writes to Wikidata). Uses test entities from `docs/test-entities.yaml`. Results logged to `logs/wikidata-methodology-testing/`. Invoke with `/wikidata-methodology-testing Q42`.
 
 ## Working with pywikibot
 
