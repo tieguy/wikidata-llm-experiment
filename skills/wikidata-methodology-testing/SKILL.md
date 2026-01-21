@@ -119,13 +119,22 @@ entity_type: [human|organization|creative_work]
 property: [P-id]
 property_label: [label]
 property_selected_by: system
+claim_status: [existing|new]  # Is this verifying an existing claim or proposing a new one?
 
 sources_consulted:
-  - url: "[url]"
-    name: "[name]"
-    type: [primary|secondary]
+  - source_name: "[human-readable name]"
+    source_type: [encyclopedia|official_website|news|academic|database|other]
     reliability: [1-5]
-    useful_for: "[description]"
+    useful_for: "[what this source provides]"
+    wikidata_ref:  # How this would be cited in Wikidata
+      P248: [Q-id]        # stated in (for known publications)
+      P854: "[url]"       # reference URL
+      P813: [YYYY-MM-DD]  # retrieved date
+      P1476: "[title]"    # title (optional)
+    human_readable:
+      stated_in: "[publication name or null]"
+      url: "[url]"
+      retrieved: [YYYY-MM-DD]
 
 sift_verification:
   stop: "[what was questioned]"
@@ -136,23 +145,42 @@ sift_verification:
 proposed_claim:
   value: "[proposed value]"
   value_type: [item|string|time|quantity]
-  precision: [if applicable]
+  value_qid: [Q-id if item type, null otherwise]
+  precision: [if applicable for dates: year|month|day]
+  qualifiers:  # Optional additional context
+    # P580: start_time
+    # P582: end_time
+    # etc.
   confidence: [high|medium|low]
   confidence_reasoning: "[reasoning]"
-  references:
-    - url: "[url]"
-      retrieved: [date]
+  primary_reference:  # The best reference for this claim
+    wikidata_ref:
+      P248: [Q-id]        # stated in
+      P854: "[url]"       # reference URL
+      P813: [YYYY-MM-DD]  # retrieved
+    human_readable:
+      stated_in: "[publication name]"
+      url: "[url]"
+      retrieved: [YYYY-MM-DD]
 
 # HUMAN FILLS IN AFTER REVIEW:
 human_verification:
   reviewed_by: null
   review_date: null
-  sift_correct: null  # true/false
-  proposed_value_correct: null  # true/false
+  sift_correct: null  # true/false - Was the SIFT methodology correctly applied?
+  proposed_value_correct: null  # true/false - Is the proposed value accurate?
   actual_value: null  # if different from proposed
-  failure_mode: null  # hallucinated_source|misread_source|wrong_property|incorrect_value|other
+  failure_mode: null  # hallucinated_source|misread_source|wrong_property|incorrect_value|insufficient_precision|other
   notes: null
 ```
+
+**Reference Property Quick Reference:**
+- P248 (stated in): For known publications (encyclopedias, books, databases) - use the Q-id
+- P854 (reference URL): The actual URL of the source
+- P813 (retrieved): Date the source was accessed
+- P1476 (title): Title of the webpage/article (optional)
+- P123 (publisher): Who published it (optional)
+- P577 (publication date): When the source was published (optional)
 
 ### Step 7: Present for Human Verification
 
