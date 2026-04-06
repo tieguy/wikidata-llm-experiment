@@ -1,5 +1,9 @@
 # wikidata-factcheck-experiment
 
+> **Note: This repo is archived.** Active development has moved to
+> [open-graph-next/wikidata-SIFT](https://github.com/tieguy/open-graph-next/tree/main/wikidata-SIFT).
+> This standalone repo is preserved for history but is no longer updated.
+
 An experiment by [Luis Villa](https://meta.wikimedia.org/wiki/User:LuisVilla) exploring LLM-assisted fact-checking for Wikidata contributions. I do not expect anyone other than myself will use this, but I provide it here in the interests of transparency.
 
 ## Research Questions
